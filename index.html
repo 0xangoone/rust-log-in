@@ -175,7 +175,7 @@ input::placeholder {
             let email = $(".email").value;
             let password = $(".password").value;
             const Http = new XMLHttpRequest();
-            const url=`http://192.168.1.6:8000/in=${email}&${password}`;
+            const url=`http://127.0.0.0:8000/in=${email}&${password}`;
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url, true);
             xhr.send();

@@ -61,7 +61,7 @@ async fn save_user_data(email: &str, password: &str){
     connection.insert_one(doc! {"email":email,"password":password}, None).await.unwrap();
 }
 fn main() {
-    let tl = TcpListener::bind("0.0.0.0:8000").unwrap();
+    let tl = TcpListener::bind("127.0.0.1:8000").unwrap();
     for stream in tl.incoming(){
         thread::spawn(move||
             if let Ok(stream) = stream {

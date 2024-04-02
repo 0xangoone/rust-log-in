@@ -34,19 +34,6 @@ fn handle(mut stream: TcpStream){
         rt.block_on(save_user_data(email, password));
         stream.write(response.as_bytes()).unwrap();
         stream.flush().unwrap();
-    }else if path == "/main.css"{
-        let code:String = fs::read_to_string("main.css").unwrap();
-        let response = format!("HTTP/1.1 200 OK\r\nContent-Length: {}\r\nContent-Type: text/css\r\n\r\n{}",code.len(),code);
-        println!("{}",response);
-        stream.write(response.as_bytes()).unwrap();
-        stream.flush().unwrap();
-    }
-    else if path == "/main.js"{
-        let code:String = fs::read_to_string("main.js").unwrap();
-        let response = format!("HTTP/1.1 200 OK\r\nContent-Length: {}\r\nContent-Type: text/js\r\n\r\n{}",code.len(),code);
-        println!("{}",response);
-        stream.write(response.as_bytes()).unwrap();
-        stream.flush().unwrap();
     }
 }
 async fn save_user_data(email: &str, password: &str){
